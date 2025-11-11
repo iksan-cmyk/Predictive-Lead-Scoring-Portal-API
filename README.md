@@ -51,7 +51,7 @@ model/
 * Model ONNX harus dimuat satu kali saat server dijalankan.
 * Server menggunakan SQLite sebagai penyimpanan data.
 
-## Autentikasi Pengguna
+## Kriteria 2: Autentikasi Pengguna
 * menggunkana jwt
 
 | Endpoint               | Body Request                             | Response                                                                                                                           | Keterangan                                                     |
@@ -60,13 +60,13 @@ model/
 | **POST /login**        | `username`: string<br>`password`: string | **status code:** 200 (OK)<br>**body:**<br>{<br>"status": "success",<br>"message": "Login successful",<br>"token": "jwt_token"<br>} | Melakukan autentikasi pengguna dan mengembalikan JWT token.    |
 | **GET /users/profile** | -                                        | **status code:** 200 (OK)<br>**body:**<br>{<br>"status": "success",<br>"data": {<br>"username": "jake off"<br>}<br>}                  | Mendapatkan profil pengguna aktif berdasarkan JWT token.       |
 
-## Prediksi Nasabah
+## Kriteria 3: Prediksi Nasabah
 
 | Endpoint          | Body Request                                                                                                            | Response                                                                                                                                                | Keterangan                                                                               |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | **POST /predict** | JSON berisi fitur nasabah seperti:<br>`age`: number,<br>`job`: string,<br>`marital`: string,<br>`balance`: number, dll. | **status code:** 200 (OK)<br>**body:**<br>{<br>"status": "success",<br>"data": {<br>"probability": 0.82,<br>"predicted_class": "berlangganan"<br>}<br>} | Melakukan inferensi menggunakan model ONNX. Endpoint ini **memerlukan autentikasi JWT**. |
 
-## Pengelolaan Data Nasabah
+## Kriteria 4: Pengelolaan Data Nasabah
 * mengelola data nasabah yang tersimpan di database SQLite.
 
 | Endpoint               | Body Request                                                        | Response                                                                                                                                      | Keterangan                             |
