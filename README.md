@@ -146,6 +146,3 @@ Authorization: Bearer <access_token>
 # Run with nodemon (auto-reload)
 npm run dev
 ```
-
-## Licens
-ISC
