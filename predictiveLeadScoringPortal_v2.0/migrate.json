@@ -1,0 +1,5 @@
+{
+  "migrations-folder": "./src/database/migrations",
+  "migration-file-language": "js",
+  "migration-template-file": false
+}
